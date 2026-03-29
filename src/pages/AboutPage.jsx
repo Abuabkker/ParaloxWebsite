@@ -7,12 +7,12 @@ import { TeamCarousel } from '../components/ui/TeamCarousel';
 import { Testimonials } from '../components/ui/Testimonials';
 
 const COUNTRIES = [
-  { icon: <Building2 size={20} color="#0891B2" />, n: 'Sri Lanka' },
-  { icon: <Building  size={20} color="#DC2626" />, n: 'UAE' },
-  { icon: <Flag      size={20} color="#16A34A" />, n: 'Saudi Arabia' },
-  { icon: <Navigation size={20} color="#7C3AED" />, n: 'Singapore' },
-  { icon: <Globe     size={20} color="#B45309" />, n: 'PNG' },
-  { icon: <MapPin    size={20} color="#0891B2" />, n: 'Qatar' },
+  { icon: '🇱🇰', n: 'Sri Lanka' },
+  { icon:' 🇦🇪', n: 'UAE' },
+  { icon: '🇸🇦', n: 'Saudi Arabia' },
+  { icon: '🇸🇬', n: 'Singapore' },
+  { icon: '🇵🇳', n: 'PNG' },
+  { icon: '🇶🇦', n: 'Qatar' },
 ];
 
 export function AboutPage({ setPage, dark }) {
