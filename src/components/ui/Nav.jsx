@@ -49,7 +49,7 @@ export function Nav({ page, setPage, dark, setDark }) {
             <motion.button key={p} onClick={() => go(p)} whileHover={{ y: -1 }}
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '6px 11px', fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: page === p ? 700 : 500, fontSize: '.85rem', color: page === p ? T.p1 : dark ? '#B8A0D8' : '#4B3275', borderRadius: 8, textTransform: 'capitalize', position: 'relative' }}>
               {p}
-              {page === p && <motion.div layoutId="np" style={{ position: 'absolute', bottom: -2, left: '50%', width: '60%', height: 2, background: T.grad, borderRadius: 2, transform: 'translateX(-50%)' }} />}
+              {page === p && <motion.div layoutId="np" style={{ position: 'absolute', bottom: -2, left: '20%', width: '60%', height: 2, background: T.grad, borderRadius: 2, transform: 'translateX(-50%)' }} />}
             </motion.button>
           ))}
         </div>
