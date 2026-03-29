@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
 import { T } from '../../data';
 
-const PAGES = ['home', 'about', 'services', 'packages', 'gallery', 'contact'];
+const PAGES = ['home', 'about', 'services', 'gallery', 'contact'];
+// const PAGES = ['home', 'about', 'services', 'packages', 'gallery', 'contact'];
 
 export function Nav({ page, setPage, dark, setDark }) {
   const [open, setOpen] = useState(false);
