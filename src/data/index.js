@@ -45,7 +45,7 @@ export const TEAM_DATA = [
     initials: 'AB',
     name: 'Abubakker Bakthathi',
     role: 'Founder & CEO',
-    bio: 'Entrepreneur and AI consultant with 6+ years experience. Founded Paralox Media to bring AI-native digital strategies to businesses worldwide. Speaker, builder, and digital transformation leader.',
+    bio: 'Entrepreneur and Digital consultant with 6+ years experience. Founded Paralox Media to bring AI-native digital strategies to businesses worldwide. Speaker, builder, and digital transformation leader.',
     tags: ['AI Strategy', 'Full-Stack Dev', 'Brand Strategy', 'Digital Marketing', 'Prompt Engineering',],
     link: 'https://abubakker98.github.io/Connect/',
     image: '/images/Abubakker.svg',
