@@ -25,7 +25,7 @@ function HeroSection({ setPage, dark }) {
   }, []);
 
   return (
-    <section style={{ minHeight: '100vh', paddingTop: 64, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <section style={{ minHeight: '100vh', paddingTop: 150,paddingBottom: 100, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {/* BG */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, background: 'linear-gradient(-45deg,#0C0524,#180A44,#2A0868,#0C0320,#180040,#4808C0,#0C0118)', backgroundSize: '400% 400%', animation: 'gradFlow 14s ease infinite' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: .12, backgroundImage: 'linear-gradient(rgba(139,82,247,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(139,82,247,.4) 1px,transparent 1px)', backgroundSize: '72px 72px' }} />
@@ -53,7 +53,7 @@ function HeroSection({ setPage, dark }) {
         <div style={{ overflow: 'hidden', maxWidth: 'min(1100px,92vw)', width: '100%', marginBottom: 28 }}>
           <motion.h1 className="hh" initial={{ opacity: 0, y: '110%' }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .5, duration: .72, ease: [.22, 1, .36, 1] }}
             style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 'clamp(2.1rem,6.5vw,5.8rem)', lineHeight: 1.05, letterSpacing: '-2.5px', color: '#fff', margin: 0 }}>
-            AI-Powered Business Solutions
+            <span style={{ background: 'linear-gradient(135deg,#60EFFF,#A855F7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>AI-Powered</span> Business Solutions
           </motion.h1>
         </div>
 
