@@ -11,6 +11,7 @@ import { ServicesPage }   from './pages/ServicesPage';
 import { PackagesPage }   from './pages/PackagesPage';
 import { GalleryPage }    from './pages/GalleryPage';
 import { ContactPage }    from './pages/ContactPage';
+import { VapiWidget }     from './components/ui/VapiWidget';
 
 export default function App() {
   const [loaded,   setLoaded]   = useState(false);
@@ -87,6 +88,9 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* VAPI voice widget — always visible once site loads */}
+      {showSite && <VapiWidget dark={dark} />}
     </div>
   );
 }
