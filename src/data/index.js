@@ -64,7 +64,18 @@ export const TEAM_DATA = [
     grad: 'linear-gradient(150deg,#7C3AED 0%,#A855F7 60%,#0D0522 100%)',
     accentColor: '#A855F7',
   },
-
+{
+  initials: 'HR',
+  name: 'Hafsa Razin',
+  role: 'Web Developer',
+  bio: 'Building responsive, high-performance web experiences with clean code and modern frameworks. Passionate about turning design concepts into seamless, pixel-perfect interfaces that users love.',
+  tags: ['Wordpress', 'UI Development', 'Responsive Design', 'Frontend Engineering'],
+  stats: null,
+  link: null,
+  image: '/images/Hafsa.svg',
+  grad: 'linear-gradient(150deg,#7C3AED 0%,#A855F7 60%,#0D0522 100%)',
+  accentColor: '#A855F7',
+},
 ];
 
 // ─── BRANDS ───────────────────────────────────────────────────────────────────

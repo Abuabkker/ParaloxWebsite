@@ -16,6 +16,7 @@ const SERVICES_LIST = ['Social Media Management','AI-Driven Digital Marketing','
 export function ContactPage({ dark }) {
   const [form, setForm] = useState({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const bd = dark ? 'rgba(139,82,247,.13)' : 'rgba(91,29,232,.09)';
   const iS = {
@@ -28,10 +29,38 @@ export function ContactPage({ dark }) {
   };
 
   const h   = e => setForm({ ...form, [e.target.name]: e.target.value });
-  const sub = () => {
-    setSent(true);
-    setForm({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
-    setTimeout(() => setSent(false), 5000);
+  const sub = async () => {
+    if (!form.fname || !form.email || !form.message) {
+      alert('Please fill in required fields');
+      return;
+    }
+    
+    setLoading(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xlgojvpr', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fname: form.fname,
+          lname: form.lname,
+          email: form.email,
+          phone: form.phone,
+          service: form.service,
+          message: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ fname: '', lname: '', email: '', phone: '', service: '', message: '' });
+        setTimeout(() => setSent(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error sending form:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -157,9 +186,9 @@ export function ContactPage({ dark }) {
                 <textarea name="message" value={form.message} onChange={h} placeholder="Tell us about your project..." rows={4} style={{ ...iS, resize: 'vertical' }} />
               </div>
 
-              <motion.button whileHover={{ y: -2, boxShadow: '0 10px 28px rgba(91,29,232,.4)' }} whileTap={{ scale: .97 }} onClick={sub}
-                style={{ width: '100%', padding: '13px', borderRadius: 50, border: 'none', cursor: 'pointer', background: T.grad, color: '#fff', fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: '.93rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, boxShadow: '0 6px 20px rgba(91,29,232,.3)' }}>
-                <Send size={15} /> Send Message
+              <motion.button whileHover={{ y: -2, boxShadow: '0 10px 28px rgba(91,29,232,.4)' }} whileTap={{ scale: .97 }} onClick={sub} disabled={loading}
+                style={{ width: '100%', padding: '13px', borderRadius: 50, border: 'none', cursor: loading ? 'not-allowed' : 'pointer', background: T.grad, color: '#fff', fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: '.93rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, boxShadow: '0 6px 20px rgba(91,29,232,.3)', opacity: loading ? 0.7 : 1 }}>
+                <Send size={15} /> {loading ? 'Sending...' : 'Send Message'}
               </motion.button>
 
               <AnimatePresence>
