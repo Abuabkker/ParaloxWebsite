@@ -20,7 +20,7 @@ export function TeamCarousel({ dark }) {
   return (
     <div style={{ position: 'relative', width: '100%', padding: '20px 0 48px' }}>
       {/* 3-D Stage */}
-      <div style={{ position: 'relative', height: 'clamp(460px,55vw,520px)', display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: '1100px', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', height: 'clamp(520px,55vw,520px)', display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: '1100px', overflow: 'hidden' }}>
         {TEAM_DATA.map((m, i) => {
           let pos = i - cur;
           if (pos > Math.floor(total / 2)) pos -= total;
@@ -44,18 +44,24 @@ export function TeamCarousel({ dark }) {
             >
               <div style={{ borderRadius: 22, overflow: 'hidden', background: isCenter ? cBg : dark ? 'rgba(12,4,26,.7)' : 'rgba(248,244,255,.85)', border: isCenter ? `2px solid ${m.accentColor}44` : `1px solid ${bd}`, boxShadow: isCenter ? '0 28px 64px rgba(91,29,232,.24)' : 'none', transition: 'background .3s' }}>
                 {/* Header */}
-                <div style={{ height: 190, background: m.grad, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ position: 'absolute', inset: 0, opacity: .09, backgroundImage: 'repeating-linear-gradient(45deg,rgba(255,255,255,1) 0,rgba(255,255,255,1) 1px,transparent 0,transparent 50%)', backgroundSize: '14px 14px' }} />
-                  <div style={{ position: 'absolute', bottom: -44, left: -44, width: 190, height: 190, borderRadius: '50%', background: 'rgba(255,255,255,.06)' }} />
-                  <div style={{ position: 'absolute', top: -32, right: -32, width: 150, height: 150, borderRadius: '50%', background: 'rgba(255,255,255,.05)' }} />
-                  <div style={{ position: 'relative', zIndex: 2 }}>
-                    <div style={{ width: 82, height: 82, borderRadius: '50%', background: 'rgba(255,255,255,.18)', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.55rem', border: '2px solid rgba(255,255,255,.32)', boxShadow: '0 8px 24px rgba(0,0,0,.28)' }}>
-                      {m.initials}
-                    </div>
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 110, height: 110, borderRadius: '50%', border: '1px solid rgba(255,255,255,.14)', pointerEvents: 'none' }} />
-                    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 148, height: 148, borderRadius: '50%', border: '1px solid rgba(255,255,255,.07)', pointerEvents: 'none' }} />
-                  </div>
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top,rgba(0,0,0,.72),transparent)', padding: '18px 16px 12px' }}>
+                <div style={{ height: 190, position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: m.image ? 'transparent' : m.grad }}>
+                  {m.image ? (
+                    <img src={m.image} alt={m.name} style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }} />
+                  ) : (
+                    <>
+                      <div style={{ position: 'absolute', inset: 0, opacity: .09, backgroundImage: 'repeating-linear-gradient(45deg,rgba(255,255,255,1) 0,rgba(255,255,255,1) 1px,transparent 0,transparent 50%)', backgroundSize: '14px 14px' }} />
+                      <div style={{ position: 'absolute', bottom: -44, left: -44, width: 190, height: 190, borderRadius: '50%', background: 'rgba(255,255,255,.06)' }} />
+                      <div style={{ position: 'absolute', top: -32, right: -32, width: 150, height: 150, borderRadius: '50%', background: 'rgba(255,255,255,.05)' }} />
+                      <div style={{ position: 'relative', zIndex: 2 }}>
+                        <div style={{ width: 82, height: 82, borderRadius: '50%', background: 'rgba(255,255,255,.18)', backdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.55rem', border: '2px solid rgba(255,255,255,.32)', boxShadow: '0 8px 24px rgba(0,0,0,.28)' }}>
+                          {m.initials}
+                        </div>
+                        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 110, height: 110, borderRadius: '50%', border: '1px solid rgba(255,255,255,.14)', pointerEvents: 'none' }} />
+                        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 148, height: 148, borderRadius: '50%', border: '1px solid rgba(255,255,255,.07)', pointerEvents: 'none' }} />
+                      </div>
+                    </>
+                  )}
+                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top,rgba(0,0,0,.72),transparent)', padding: '18px 16px 12px', zIndex: 3 }}>
                     <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.05rem', color: 'white', lineHeight: 1.2 }}>{m.name}</div>
                     <div style={{ fontSize: '.72rem', color: 'rgba(255,255,255,.68)', fontFamily: "'Plus Jakarta Sans',sans-serif", marginTop: 1 }}>{m.role}</div>
                   </div>
