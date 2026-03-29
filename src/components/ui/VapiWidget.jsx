@@ -103,7 +103,7 @@ export function VapiWidget({ dark }) {
               pointerEvents: 'none',
             }}
           >
-            Talk to Nova Paralox AI Assistant
+            Talk to Agent Nova
           </motion.div>
         )}
 
