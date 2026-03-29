@@ -39,11 +39,17 @@ export function Nav({ page, setPage, dark, setDark }) {
         }}>
 
         {/* Logo */}
-        <motion.div whileHover={{ scale: 1.04 }} onClick={() => go('home')} style={{ cursor: 'pointer' }}>
+        {/* <motion.div whileHover={{ scale: 1.04 }} onClick={() => go('home')} style={{ cursor: 'pointer' }}>
           <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.4rem', background: T.grad, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', lineHeight: 1.1 }}>paralox</div>
           <div style={{ fontSize: '.5rem', letterSpacing: 4, color: dark ? '#9B8BC0' : '#8B7AAA', fontWeight: 700, marginTop: -2, textTransform: 'uppercase' }}>MEDIA</div>
-        </motion.div>
-
+        </motion.div> */}
+  <motion.img 
+          src={dark ? "/images/Logo/Paralox Logo BW.png" : "/images/Logo/Paralox Logo Color.png"} 
+          alt="Paralox Media" 
+          onClick={() => go('home')} 
+          whileHover={{ scale: 1.04 }} 
+          style={{ height: 180, cursor: 'pointer' }} 
+        />
         {/* Desktop links */}
         <div className="nd" style={{ display: 'flex', gap: 2 }}>
           {PAGES.map(p => (

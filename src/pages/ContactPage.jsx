@@ -99,8 +99,13 @@ export function ContactPage({ dark }) {
               </div>
               <div style={{ fontWeight: 700, marginBottom: 10, color: dark ? '#F0E8FF' : '#1A0A2E', fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '.87rem' }}>Follow Us</div>
               <div style={{ display: 'flex', gap: 8, marginBottom: 22 }}>
-                {[<Facebook size={13}/>, <Instagram size={13}/>, <Linkedin size={13}/>, <Globe size={13}/>].map((ic, i) => (
-                  <motion.button key={i} whileHover={{ y: -3 }} style={{ width: 34, height: 34, borderRadius: 8, background: T.grad, border: 'none', cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{ic}</motion.button>
+                {[
+                  { icon: <Facebook size={13}/>, link: 'https://www.facebook.com/paralox.media/' },
+                  { icon: <Instagram size={13}/>, link: 'https://www.instagram.com/paralox.media/' },
+                  { icon: <Linkedin size={13}/>, link: 'https://www.linkedin.com/company/paralox-media' },
+                  { icon: <Globe size={13}/>, link: null }
+                ].map(({ icon, link }, i) => (
+                  <motion.a key={i} href={link || '#'} target={link ? '_blank' : undefined} rel="noreferrer" whileHover={{ y: -3 }} style={{ width: 34, height: 34, borderRadius: 8, background: T.grad, border: 'none', cursor: 'pointer', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>{icon}</motion.a>
                 ))}
               </div>
               <motion.a href="https://wa.me/94750328833" target="_blank" rel="noreferrer" whileHover={{ y: -2 }}

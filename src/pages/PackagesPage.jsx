@@ -125,7 +125,7 @@ export function PackagesPage({ setPage, dark }) {
 
         <FadeUp delay={0.14}>
           <div style={{ marginTop: 24, padding: '13px 18px', borderRadius: 12, background: 'rgba(91,29,232,.05)', border: `1px solid ${bd}`, textAlign: 'center', fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 'clamp(.82rem,1.8vw,.87rem)', color: dark ? '#B8A0D8' : '#5B4080' }}>
-            All packages customisable — <span onClick={() => setPage('contact')} style={{ color: T.p1, fontWeight: 700, cursor: 'pointer' }}>Contact us</span> for a tailored solution.
+            All packages customisable <span onClick={() => setPage('contact')} style={{ color: T.p1, fontWeight: 700, cursor: 'pointer' }}>Contact us</span> for a tailored solution.
           </div>
         </FadeUp>
       </div>

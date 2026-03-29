@@ -15,20 +15,25 @@ export function Footer({ setPage, dark }) {
 
           {/* Brand */}
           <div>
-            <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.3rem', background: 'linear-gradient(135deg,#A855F7,#60EFFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: 7 }}>paralox media</div>
+            <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: '1.3rem', background: 'linear-gradient(135deg,#A855F7,#60EFFF)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: 7 }}>Paralox Media Private Limited</div>
             <p style={{ fontSize: '.78rem', lineHeight: 1.75, color: 'rgba(255,255,255,.26)', maxWidth: 210, marginBottom: 13 }}>Building the Future of AI-Powered Business Solutions.</p>
             <div style={{ display: 'flex', gap: 7 }}>
-              {[<Facebook size={12}/>,<Instagram size={12}/>,<Linkedin size={12}/>,<Globe size={12}/>].map((ic, i) => (
-                <motion.button key={i} whileHover={{ y: -2 }}
-                  style={{ width: 29, height: 29, borderRadius: 7, background: 'rgba(139,82,247,.18)', border: '1px solid rgba(139,82,247,.22)', cursor: 'pointer', color: 'rgba(255,255,255,.6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {ic}
-                </motion.button>
+              {[
+                { icon: <Facebook size={12}/>, link: 'https://www.facebook.com/paralox.media/' },
+                { icon: <Instagram size={12}/>, link: 'https://www.instagram.com/paralox.media/' },
+                { icon: <Linkedin size={12}/>, link: 'https://www.linkedin.com/company/paralox-media' },
+                { icon: <Globe size={12}/>, link: null }
+              ].map(({ icon, link }, i) => (
+                <motion.a key={i} href={link || '#'} target={link ? '_blank' : undefined} rel="noreferrer" whileHover={{ y: -2 }}
+                  style={{ width: 29, height: 29, borderRadius: 7, background: 'rgba(139,82,247,.18)', border: '1px solid rgba(139,82,247,.22)', cursor: 'pointer', color: 'rgba(255,255,255,.6)', display: 'flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+                  {icon}
+                </motion.a>
               ))}
             </div>
           </div>
 
           {/* Pages */}
-          <div>
+          <div className="hide-mobile">
             <div style={{ fontWeight: 600, fontSize: '.73rem', color: 'rgba(255,255,255,.4)', letterSpacing: 0.8, marginBottom: 11, textTransform: 'uppercase' }}>Pages</div>
             {PAGES.map(p => (
               <div key={p} onClick={() => go(p)}
@@ -41,7 +46,7 @@ export function Footer({ setPage, dark }) {
           </div>
 
           {/* Services */}
-          <div>
+          <div className="hide-mobile">
             <div style={{ fontWeight: 600, fontSize: '.73rem', color: 'rgba(255,255,255,.4)', letterSpacing: 0.8, marginBottom: 11, textTransform: 'uppercase' }}>Services</div>
             {SERVICES.map(s => (
               <div key={s} style={{ fontSize: '.77rem', color: 'rgba(255,255,255,.27)', marginBottom: 7 }}>{s}</div>
@@ -68,17 +73,7 @@ export function Footer({ setPage, dark }) {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ borderTop: '1px solid rgba(139,82,247,.08)', paddingTop: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
-          <span style={{ fontSize: '.71rem', color: 'rgba(255,255,255,.17)' }}>© 2025 Paralox Media (Pvt) Ltd. All rights reserved.</span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: '.69rem', color: 'rgba(255,255,255,.13)' }}>Made with care in Sri Lanka</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-              <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#22C55E', boxShadow: '0 0 5px #22C55E' }} />
-              <span style={{ fontSize: '.69rem', color: 'rgba(255,255,255,.2)' }}>Systems operational</span>
-            </div>
-          </div>
-        </div>
+    
       </div>
     </footer>
   );
